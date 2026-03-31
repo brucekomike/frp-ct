@@ -13,6 +13,8 @@ on:
       - master
   release:
     types: [published]
+  schedule:
+    - cron: '0 0 * * 0'
 
 env:
   REGISTRY: ghcr.io
@@ -88,4 +90,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha,scope=${{ github.repository }}${{ matrix.suffix }}
           cache-to: type=gha,scope=${{ github.repository }}${{ matrix.suffix }},mode=max
-
