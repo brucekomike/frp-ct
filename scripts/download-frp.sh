@@ -12,6 +12,7 @@ detect_arch() {
                 echo "$TARGETARCH"
                 ;;
             arm)
+                # FRP releases arm binaries as plain "arm" (armv7 compatible)
                 echo "arm"
                 ;;
             *)
