@@ -11,10 +11,6 @@ detect_arch() {
             amd64|arm64)
                 echo "$TARGETARCH"
                 ;;
-            arm)
-                # FRP releases arm binaries as plain "arm" (armv7 compatible)
-                echo "arm"
-                ;;
             *)
                 echo "unsupported"
                 ;;
