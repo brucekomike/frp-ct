@@ -5,6 +5,18 @@ get_latest_release_tag() {
 
 # Function to detect architecture
 detect_arch() {
+    # Prefer TARGETARCH if set (passed as Docker build arg)
+    if [ -n "$TARGETARCH" ]; then
+        case "$TARGETARCH" in
+            amd64|arm64)
+                echo "$TARGETARCH"
+                ;;
+            *)
+                echo "unsupported"
+                ;;
+        esac
+        return
+    fi
     ARCH=$(uname -m)
     case "$ARCH" in
         x86_64)
